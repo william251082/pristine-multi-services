@@ -3,8 +3,21 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "IMAGE": "iceshop/multi-client",
-      "hostname": "client"
+      "image": "iceshop/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "server",
+      "image": "iceshop/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "iceshop/multi-worker",
+      "hostname": "worker",
+      "essential": false
     }
   ]
 }
