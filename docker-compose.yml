@@ -5,6 +5,9 @@ services:
   redis:
     image: 'redis:latest'
   nginx:
+    depends_on:
+      - api
+      - client
     restart: always
     build:
       dockerfile: Dockerfile.dev
@@ -24,11 +27,12 @@ services:
       - PGUSER=postgres
       - PGHOST=postgres
       - PGDATABASE=postgres
-      - PGPASSWORD=postgres_password
+      - POSTGRES_PASSWORD=postgres_password
       - PGPORT=5432
     depends_on:
       - postgres
   client:
+    stdin_open: true
     build:
       dockerfile: Dockerfile.dev
       context: ./client
