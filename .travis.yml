@@ -27,7 +27,7 @@ deploy:
   provider: elasticbeanstalk
   region: 'eu-west-2'
   app: 'pristine-multi-services'
-  env: 'PristineMultiServices-env-1'
+  env: 'PristineMultiServices-env'
   bucket_name: 'elasticbeanstalk-eu-west-2-165893722651'
   bucket_path: 'docker-multi'
   on:
