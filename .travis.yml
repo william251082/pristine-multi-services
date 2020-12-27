@@ -5,23 +5,23 @@ services:
   - docker
 
 before_install:
-  - docker build -t iceshop/react-test -f ./client/Dockerfile.dev ./client
+  - docker build -t pristine/react-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true iceshop/react-test npm test
+  - docker run -e CI=true pristine/react-test npm test
 
 after_success:
-  - docker build -t iceshop/multi-client ./client
-  - docker build -t iceshop/multi-nginx ./nginx
-  - docker build -t iceshop/multi-server ./server
-  - docker build -t iceshop/multi-worker ./worker
+  - docker build -t pristine/multi-client ./client
+  - docker build -t pristine/multi-nginx ./nginx
+  - docker build -t pristine/multi-server ./server
+  - docker build -t pristine/multi-worker ./worker
   # Log in to the docker cli
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push iceshop/multi-client
-  - docker push iceshop/multi-nginx
-  - docker push iceshop/multi-server
-  - docker push iceshop/multi-worker
+  - docker push pristine/multi-client
+  - docker push pristine/multi-nginx
+  - docker push pristine/multi-server
+  - docker push pristine/multi-worker
 
 deploy:
   provider: elasticbeanstalk

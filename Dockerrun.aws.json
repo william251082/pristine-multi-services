@@ -3,28 +3,28 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "iceshop/multi-client",
+      "image": "pristine/multi-client",
       "hostname": "client",
       "essential": false,
       "memory": 128
     },
     {
       "name": "server",
-      "image": "iceshop/multi-server",
+      "image": "pristine/multi-server",
       "hostname": "api",
       "essential": false,
       "memory": 128
     },
     {
       "name": "worker",
-      "image": "iceshop/multi-worker",
+      "image": "pristine/multi-worker",
       "hostname": "worker",
       "essential": false,
       "memory": 128
     },
     {
       "name": "nginx",
-      "image": "iceshop/multi-nginx",
+      "image": "pristine/multi-nginx",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [
